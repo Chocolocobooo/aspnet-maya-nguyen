@@ -1,0 +1,71 @@
+@model IEnumerable<CoreFitnessClub.Application.DTOs.MembershipPlanDto>
+@{ ViewData["Title"] = "Memberships"; }
+
+@{
+    var faqs = new List<(string Question, string Answer, bool IsOpen)>
+    {
+        ("Q1. Do I need prior gym experience to Join CoreFitness?",
+         "No, CoreFitness is designed for all fitness levels. Our trainers guide beginners with proper technique.\n\n• Every new member receives a personalised introduction to equipment\n• Workouts are designed to grow with you.",
+         true),
+        ("Q2. What facilities are included with the membership?",
+         "Our facilities include state-of-the-art gym equipment, group fitness studios, locker rooms, and more depending on your membership tier.",
+         false),
+        ("Q3. Can I try the gym before taking a membership?",
+         "Yes! We offer a 30-day free trial so you can experience CoreFitness before committing.",
+         false),
+        ("Q4. Are there group workout programs available?",
+         "Absolutely. We offer a wide range of group classes including HIIT, yoga, cycling, boxing, and more — all included in your membership.",
+         false),
+        ("Q5. Is nutrition guidance included in the plans?",
+         "Premium members receive personalised nutrition guidance and meal planning support from our certified nutritionists.",
+         false),
+    };
+}
+
+<div class="page-title-section">
+    <h1>Our Membership Offers</h1>
+</div>
+
+@await Html.PartialAsync("Partials/_Alerts")
+
+<div class="membership-section">
+    <div class="membership-grid">
+        @foreach (var plan in Model)
+        {
+            @await Html.PartialAsync("Partials/_MembershipPlanCard", plan)
+        }
+
+        <!-- CTA Card -->
+        <div class="membership-cta-card">
+            <h3>Get Your Membership</h3>
+            <p>Our memberships give you access to all equipment, personalised training.</p>
+            <div class="membership-cta-phone">
+                <span></span> Call Us At: +(46) 8 410 521 00
+
+            </div>
+            <button class="btn-callus">Call Us Today! <span class="btn-join-arrow">›</span></button>
+            <img src="~/images/woman-lifting.png" alt="Training" />
+            
+        </div>
+    </div>
+
+    <div class="membership-perks">
+        <div class="membership-perk"><div class="perk-dot"></div> Get 30 day free trial</div>
+        <div class="membership-perk"><div class="perk-dot"></div> No any hidden fees pay</div>
+        <div class="membership-perk"><div class="perk-dot"></div> You can cancel anytime</div>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+    <div class="faq-inner">
+        <div class="faq-image">
+            <img src="~/images/man-lifting.jpg" alt="Gym" />
+        </div>
+        <div class="faq-content">
+            <div class="faq-badge">✦ Frequently Asked Questions</div>
+            <h2>Common questions about<br />gym and training</h2>
+            @await Html.PartialAsync("Partials/_FaqSection", faqs)
+        </div>
+    </div>
+</section>

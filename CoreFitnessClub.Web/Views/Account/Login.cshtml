@@ -1,0 +1,41 @@
+@model CoreFitnessClub.Application.DTOs.LoginDto
+@{ ViewData["Title"] = "Sign In"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<div class="auth-page">
+    <div class="auth-card">
+        <h1>Welcome Back!</h1>
+        <p>Log in to continue your fitness journey with full access to your customised program and progress tracking.</p>
+
+        <form asp-action="Login" method="post" class="auth-form">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="alert alert-error"></div>
+
+            <div class="form-group">
+                <label asp-for="Email">Email Address</label>
+                <input asp-for="Email" type="email" placeholder="Enter Email Address" />
+                <span asp-validation-for="Email" class="validation-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password" style="display:flex;justify-content:space-between;">
+                    Password <a href="#" class="forgot-link">Forgot Password?</a>
+                </label>
+                <input asp-for="Password" type="password" placeholder="Enter Password" />
+                <span asp-validation-for="Password" class="validation-error"></span>
+            </div>
+
+            <div class="form-group" style="display:flex;align-items:center;gap:0.5rem;">
+                <input asp-for="RememberMe" type="checkbox" style="width:auto;" />
+                <label asp-for="RememberMe" style="margin:0;font-size:0.83rem;color:#555;">Remember me</label>
+            </div>
+
+            <button type="submit" class="btn-auth">
+                Continue <span class="btn-auth-arrow">›</span>
+            </button>
+        </form>
+
+        <div class="auth-terms" style="margin-top:1.25rem;">
+            Don't have an account? <a asp-controller="Account" asp-action="Register" style="color:var(--accent);">Register here</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+@model CoreFitnessClub.Application.DTOs.MembershipPlanDto
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<CoreFitnessClub.Domain.Entities.ApplicationUser> SignInManager
+
+<div class="plan-card">
+    <div class="plan-icon"><img src="~/images/dumbbell-icon.png" alt="Alternate Text" /></div>
+    <h3>@Model.Name</h3>
+    <p>@Model.Description</p>
+
+    <div class="plan-features">
+        @foreach (var feature in Model.Features)
+        {
+            <div class="plan-feature">
+                <div class="plan-feature-check">✓</div>
+                @feature
+            </div>
+        }
+    </div>
+
+    <div class="plan-divider"></div>
+
+    <div class="plan-pricing">
+        <span class="plan-price-amount">@Model.Price.ToString("F2")</span>
+        <span class="plan-price-period">Monthly</span>
+    </div>
+    <div class="plan-classes">* Monthly @Model.MaxClasses Classes</div>
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <form asp-controller="Membership" asp-action="Join" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="planId" value="@Model.Id" />
+            <button type="submit" class="btn-join">
+                Join Now <span class="btn-join-arrow">›</span>
+            </button>
+        </form>
+    }
+    else
+    {
+        <a asp-controller="Account" asp-action="Register" class="btn-join" style="display:flex;justify-content:space-between;">
+            Join Now <span class="btn-join-arrow">›</span>
+        </a>
+    }
+    <div class="trial-text">Try Any Membership For 1 Week</div>
+</div>

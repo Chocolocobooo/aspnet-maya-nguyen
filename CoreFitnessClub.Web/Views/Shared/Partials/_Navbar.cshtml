@@ -1,0 +1,45 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<CoreFitnessClub.Domain.Entities.ApplicationUser> SignInManager
+@inject UserManager<CoreFitnessClub.Domain.Entities.ApplicationUser> UserManager
+
+<nav class="navbar">
+    <div class="navbar-inner">
+        <a asp-controller="Home" asp-action="Index" class="navbar-logo">
+            <img src="~/images/logotype.png" />
+            
+        </a>
+
+        <div class="navbar-links">
+            <a asp-controller="Home" asp-action="Index">Fitness Centers</a>
+            <a asp-controller="Membership" asp-action="Index">Memberships</a>
+            <div class="dropdown">
+                <button class="navbar-dropdown-btn">Training <span class="navbar-chevron">▼</span></button>
+                <div class="dropdown-menu">
+                    <a href="#">Personal Training</a>
+                    <a href="#">Group Training</a>
+                    <a href="#">Pilates</a>
+                </div>
+            </div>
+            <a asp-controller="CustomerService" asp-action="Index">Customer Service</a>
+            <a href="#">Store</a>
+        </div>
+
+        <div class="navbar-actions">
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <a asp-controller="Account" asp-action="Index" class="btn-become-member">My Account</a>
+                <form asp-controller="Account" asp-action="Logout" method="post" style="display:inline;">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn-signin">Sign Out <span class="btn-signin-arrow">›</span></button>
+                </form>
+            }
+            else
+            {
+                <a asp-controller="Account" asp-action="Register" class="btn-become-member">Become Member</a>
+                <a asp-controller="Account" asp-action="Login" class="btn-signin">
+                    Sign In <span class="btn-signin-arrow">›</span>
+                </a>
+            }
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,53 @@
+@model CoreFitnessClub.Application.DTOs.RegisterDto
+@{ ViewData["Title"] = "Register"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<div class="auth-page">
+    <div class="auth-card">
+        <h1>Become a Member</h1>
+        <p>Create your account and start your fitness journey today.</p>
+
+        <form asp-action="Register" method="post" class="auth-form">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="alert alert-error"></div>
+
+            <div class="form-row-half">
+                <div class="form-group">
+                    <label asp-for="FirstName">First Name</label>
+                    <input asp-for="FirstName" placeholder="Enter First Name" />
+                    <span asp-validation-for="FirstName" class="validation-error"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName">Last Name</label>
+                    <input asp-for="LastName" placeholder="Enter Last Name" />
+                    <span asp-validation-for="LastName" class="validation-error"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email">Email Address</label>
+                <input asp-for="Email" type="email" placeholder="Enter Email Address" />
+                <span asp-validation-for="Email" class="validation-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password">Password</label>
+                <input asp-for="Password" type="password" placeholder="Min. 8 characters" />
+                <span asp-validation-for="Password" class="validation-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ConfirmPassword">Confirm Password</label>
+                <input asp-for="ConfirmPassword" type="password" placeholder="Repeat password" />
+                <span asp-validation-for="ConfirmPassword" class="validation-error"></span>
+            </div>
+
+            <button type="submit" class="btn-auth">
+                Create Account <span class="btn-auth-arrow">›</span>
+            </button>
+        </form>
+
+        <div class="auth-terms" style="margin-top:1.25rem;">
+            Already have an account? <a asp-controller="Account" asp-action="Login" style="color:var(--accent);">Sign In</a>
+        </div>
+    </div>
+</div>

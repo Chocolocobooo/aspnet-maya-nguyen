@@ -1,0 +1,104 @@
+@{ ViewData["Title"] = "Home"; }
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-text">
+            <div class="hero-badge">Strong Body. Strong Mind</div>
+            <h1>Build Strength Boost<br />Confidence Today!</h1>
+            <p class="hero-desc">
+                Begin your fitness journey with expert trainers, modern equipment, and a
+                supportive environment designed to help you build strength and confidence.
+            </p>
+            <div class="hero-bullets">
+                <div class="hero-bullet">Transform your body with strength training</div>
+                <div class="hero-bullet">Personal training for real results</div>
+                <div class="hero-bullet">Build confidence through fitness</div>
+                <div class="hero-bullet">Fitness tailored to your goals</div>
+            </div>
+            <a asp-controller="Membership" asp-action="Index" class="btn-getstarted">Get Started</a>
+        </div>
+        <div class="hero-image">
+            <img src="~/images/hero-image.png" alt="Fitness athletes" />
+        </div>
+    </div>
+</section>
+
+<!-- LOGO STRIP -->
+<div class="logo-strip">
+    <div class="logo-strip-inner">
+        <div class="logo-strip-logos">
+            <div class="logo-strip-logo"><span>⚙</span> Logoipsum</div>
+            <div class="logo-strip-logo"><span>◈</span> Logoipsum</div>
+            <div class="logo-strip-logo"><span>⬡</span> Logoipsum</div>
+            <div class="logo-strip-logo"><span>❋</span> Logoipsum</div>
+            <div class="logo-strip-logo"><span>◉</span> Logoipsum</div>
+        </div>
+        <div class="logo-strip-cta">Modern Equipment</div>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section style="background:#fff;">
+    <div class="about-section">
+        <div class="about-images">
+            <div class="about-img ">
+                <img src="~/images/home-left.jpg" alt="Training" />
+            </div>
+            <div style="display:flex;flex-direction:column;gap:0.75rem;">
+                <div class="about-img">
+                    <img src="~/images/home-right.jpg" alt="Gym" />
+                </div>
+            </div>
+        </div>
+        <div class="about-content">
+            <div class="section-badge">About Us</div>
+            <h2>Elevating Fitness Journey<br />with Expert Guidance</h2>
+            <p>We support every stage of your fitness journey with certified trainers, personalized programs proven methods designed to help you train safely, build strength.</p>
+            <div class="about-divider"></div>
+            <p class="about-mission">Our mission is to transform lives by combining expert pedagogy, powerful training, and a motivating community.</p>
+        </div>
+    </div>
+</section>
+
+<!-- TRAINING PROGRAMS -->
+<section class="programs-section">
+    <div class="programs-inner">
+        <div class="section-header-centered">
+            <div class="section-badge" style="margin:0 auto 0.75rem;">Our Training</div>
+            <h2>Professional training program<br />for stronger health</h2>
+        </div>
+        <div class="programs-grid">
+            <div class="program-card">
+                <img src="~/images/program-1.jpg" alt="HIIT" />
+                
+            </div>
+            <div class="program-card">
+                <img src="~/images/program-image-2 1.png" alt="Strength" />
+                
+            </div>
+            <div class="program-card">
+                <img src="~/images/program-3.jpg" alt="CrossFit" />
+                
+            </div>
+        </div>
+        <p class="programs-footer">Let's make something great work together. Get Free Quote <a asp-controller="Membership" asp-action="Index"></a></p>
+    </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section">
+    <div class="products-inner">
+        <div class="section-header-centered">
+            <div class="section-badge" style="margin:0 auto 0.75rem;">Our Store</div>
+            <h2>High quality fitness products<br />built for results</h2>
+        </div>
+        <div class="products-grid">
+            <div class="product-card"><img src="~/images/dumbbell.jpg" alt="Dumbbells" /></div>
+            <div class="product-card"><img src="~/images/bag.jpg" alt="Gym Bag" /></div>
+            <div class="product-card"><img src="~/images/watch.jpg" alt="Fitness Band" /></div>
+            <div class="product-card"><img src="~/images/treadmill.jpg" alt="Treadmill" /></div>
+        </div>
+        <p class="products-footer">Browse our full range. <a href="#">Get Our Products</a></p>
+    </div>
+</section>
