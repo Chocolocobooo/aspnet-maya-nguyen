@@ -27,7 +27,7 @@ CoreFitnessClub/
 ## Getting Started
 
 ### 1. Clone / open the solution
-Open `CoreFitnessClub.sln` in Visual Studio 2022.
+Open `CoreFitnessClub.sln` in Visual Studio 2026.
 
 ### 2. Set up the database
 The connection string in `CoreFitnessClub.Web/appsettings.json` uses LocalDB by default:
@@ -62,16 +62,6 @@ dotnet run
 cd CoreFitnessClub.Tests
 dotnet test
 ```
-
-## Features
-- ✅ User registration with ASP.NET Identity
-- ✅ Login / Logout
-- ✅ Edit profile (first name, last name, phone)
-- ✅ Delete account (removes all personal data)
-- ✅ Membership plan listing and joining
-- ✅ Booking management (view + cancel)
-- ✅ Contact form with ModelState validation
-- ✅ Protected routes with `[Authorize]`
 - ✅ EF Core Code First with migrations + seed data
 - ✅ Repository pattern with generic base
 - ✅ 20 unit tests covering services and DTO validation
