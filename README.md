@@ -27,7 +27,7 @@ CoreFitnessClub/
 ## Getting Started
 
 ### 1. Clone / open the solution
-Open `CoreFitnessClub.sln` in Visual Studio 2022.
+Open `CoreFitnessClub.sln` in Visual Studio 2026.
 
 ### 2. Set up the database
 The connection string in `CoreFitnessClub.Web/appsettings.json` uses LocalDB by default:
